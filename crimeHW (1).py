@@ -25,21 +25,6 @@
 # MAGIC ### Deadline 
 # MAGIC Two weeks from the homework release date
 # MAGIC
-# MAGIC ### cluster 创建
-# MAGIC 创建cluster 的时候选择python 3  
-# MAGIC
-# MAGIC ### 画图
-# MAGIC 1. 使用Databricks 自带的画图就好了，不要求使用其他的工具
-# MAGIC 2. 如果使用其他的包，请使用display 
-# MAGIC
-# MAGIC ### Time series 
-# MAGIC 不讲，个人随意
-# MAGIC
-# MAGIC ### others
-# MAGIC 个人需要发挥主观能动性
-# MAGIC
-# MAGIC ### Ta 课程
-# MAGIC 10/23 24 上午十点，有老师来给大家QA
 
 # COMMAND ----------
 
@@ -61,8 +46,7 @@ os.environ["PYSPARK_PYTHON"] = "python3"
 # COMMAND ----------
 
 # 从SF gov 官网读取下载数据
-# 不要反复执行，大家执行一次就好了啊
-# 第二次记得comment 掉
+
 #import urllib.request
 #urllib.request.urlretrieve("https://data.sfgov.org/api/views/tmnf-yvry/rows.csv?accessType=DOWNLOAD", "/tmp/myxxxx.csv")
 #dbutils.fs.mv("file:/tmp/myxxxx.csv", "dbfs:/laioffer/spark_hw1/data/sf_03_18.csv")
@@ -101,9 +85,8 @@ display(df_opt1)
 df_opt1.createOrReplaceTempView("sf_crime")
 
 ## helper function to transform the date, choose your way to do it. 
-## 老师我真的是操心了。。。 
+
 # refer: https://jaceklaskowski.gitbooks.io/mastering-spark-sql/spark-sql-functions-datetime.html
-# 方法1 使用系统自带udf
 # from pyspark.sql.functions import to_date, to_timestamp, hour
 # df_opt1 = df_opt1.withColumn('Date', to_date(df_opt1.OccurredOn, "MM/dd/yy"))
 # df_opt1 = df_opt1.withColumn('Time', to_timestamp(df_opt1.OccurredOn, "MM/dd/yy HH:mm"))
@@ -438,8 +421,7 @@ display(q8)
 # MAGIC 4.Prediction 
 # MAGIC
 # MAGIC Refer:   
-# MAGIC https://zhuanlan.zhihu.com/p/35282988  
-# MAGIC https://zhuanlan.zhihu.com/p/35128342  
+
 # MAGIC https://www.statsmodels.org/dev/examples/notebooks/generated/tsa_arma_0.html  
 # MAGIC https://www.howtoing.com/a-guide-to-time-series-forecasting-with-arima-in-python-3  
 # MAGIC https://www.joinquant.com/post/9576?tag=algorithm  
